@@ -19,7 +19,7 @@ public class Test {
 		System.out.println("2.Read instructions from a file");
 		Scanner sc = new Scanner(System.in);
 		int option = sc.nextInt();
-		sc.close();
+		//sc.close();
 		
 		if(option == 1)
 		{
@@ -56,8 +56,8 @@ public class Test {
 //		
 //		Car c22 = new Car("ghi2","black");
 //		Car c32 = new Car("ghi3","white");
-//		
 //		service.park(c22);
+//		
 //		service.park(c32);
 //		
 //		service.status();

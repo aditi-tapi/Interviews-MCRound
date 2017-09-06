@@ -19,12 +19,16 @@ public class ParkingImplementation implements IParking{
 	@Override
 	public void addCar(Car car) {
 		// TODO Auto-generated method stub
+		if(slots.isEmpty())
+			System.out.println("Parking lot not created.");
 		car_info.put(car.getReg_number(), car.getColor());
 	}
 
 	@Override
 	public void removeCar(int n) {
 		// TODO Auto-generated method stub
+		if(slots.isEmpty())
+			System.out.println("All slots are empty.");
 		if(car_info.containsKey((slot_info.get(n).getReg_number())))
 			{
 				car_info.remove((slot_info.get(n).getReg_number()));
