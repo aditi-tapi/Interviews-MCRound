@@ -24,10 +24,13 @@ public class Test {
 		if(option == 1)
 		{
 			input = new ReadInputfromConsole();
-			input.runConsole();
+			input.run();
 		}
 		else if(option == 2)
+			{
 			input = new ReadInputfromfile();
+			input.run();
+			}
 		else
 			System.out.println("Invalid input");
 		 
