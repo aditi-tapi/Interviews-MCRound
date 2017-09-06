@@ -86,7 +86,7 @@ public class ParkingImplementation implements IParking{
 		// TODO Auto-generated method stub
 		System.out.println("Slot Number" + " " + "Registration Number"+"  "+ "Color");
 		{
-		for(int i=0;i<=slot_info.size();i++)
+		for(int i=0;i<slots.size();i++)
 			if(slots.get(i).getStatus()==true)
 			{
 				
@@ -130,12 +130,18 @@ public class ParkingImplementation implements IParking{
 	@Override
 	public void getSlotNumWithRegNum(String reg_num) {
 		// TODO Auto-generated method stub
+		boolean flag = false;
 		for (Map.Entry<Integer, Car> entry : slot_info.entrySet()) {
 			  if (entry.getValue().getReg_number().equals(reg_num)) {
-			    System.out.println(entry.getKey());
-			    break;
+				  {
+					  flag=true;
+					  System.out.println(entry.getKey());
+					  break;
+				  }
+			    
 			  }
 			}
+		if(!flag)
 		System.out.println("Not found");
 	}
 
