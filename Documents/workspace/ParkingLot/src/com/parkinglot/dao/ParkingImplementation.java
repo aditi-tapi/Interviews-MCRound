@@ -30,7 +30,7 @@ public class ParkingImplementation implements IParking{
 				car_info.remove((slot_info.get(n).getReg_number()));
 				slot_info.remove(n);
 				slots.get(n-1).setStatus(false);
-				System.out.println("Slot number"+ n + "is free");
+				System.out.println("Slot number"+" "+ n + " "+ "is free");
 			}
 		
 	}
@@ -39,6 +39,7 @@ public class ParkingImplementation implements IParking{
 	public void parkCar(int slot_num, Car car) {
 		// TODO Auto-generated method stub
 		slot_info.put(slot_num,car);
+		
 	}
 
 	@Override
@@ -52,7 +53,7 @@ public class ParkingImplementation implements IParking{
 			slots.add(slot);
 			
 		}
-		System.out.println("Created a parking lot with" + n +"slots");
+		System.out.println("Created a parking lot with" +" "+ n + " "+"slots");
 		//parkinglot = new Parkinglot(n);
 		
 	}
@@ -66,7 +67,7 @@ public class ParkingImplementation implements IParking{
 			if(slots.get(n).getStatus()==false)
 			{
 				slots.get(n).setStatus(true);
-				System.out.println("Allocated slot number:" + n+1 );
+				System.out.println("Allocated slot number:" + (n+1) );
 				break;
 			}
 		}
@@ -76,20 +77,20 @@ public class ParkingImplementation implements IParking{
 			return -1;
 			
 			}
-		return n+1;
+		return (n+1);
 		
 	}
 
 	@Override
 	public void getStatus() {
 		// TODO Auto-generated method stub
-		System.out.println("Slot Number" + "Registration Number"+ "Color" + "\n");
+		System.out.println("Slot Number" + " " + "Registration Number"+"  "+ "Color");
 		{
-		for(int i=0;i<slot_info.size();i++)
+		for(int i=0;i<=slot_info.size();i++)
 			if(slots.get(i).getStatus()==true)
 			{
 				
-				System.out.println((i+1) + slot_info.get(i+1).getReg_number()+slot_info.get(i+1).getColor());
+				System.out.println((i+1)+" " + slot_info.get(i+1).getReg_number()+ " "+slot_info.get(i+1).getColor());
 			}
 		}
 	}
@@ -104,11 +105,9 @@ public class ParkingImplementation implements IParking{
 			   
 			  }
 			}
-		int i=0;
-		while(i<keys.size())
-		{
-			System.out.println(keys.get(i) + ",");
-		}
+		
+			System.out.println(keys);
+		
 	}
 
 	@Override
@@ -122,11 +121,9 @@ public class ParkingImplementation implements IParking{
 			    
 			  }
 			}
-		int i=0;
-		while(i<keys.size())
-		{
-			System.out.println(keys.get(i) + ",");
-		}
+		
+			System.out.println(keys);
+		
 		
 	}
 
