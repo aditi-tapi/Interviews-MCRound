@@ -1,18 +1,21 @@
 package com.parkinglot.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 import com.parkinglot.domain.Car;
-import com.parkinglot.domain.Parkinglot;
+import com.parkinglot.domain.ParkingSlot;
 
-public class ParkingImplementation implements IParkinglot{
+
+public class ParkingImplementation implements IParking{
 	
 	HashMap<String, String> car_info = new HashMap<>();
 	HashMap<Integer,Car> slot_info = new HashMap<>();
-	Parkinglot parkinglot;
+	
+	ArrayList<ParkingSlot> slots = new ArrayList<>();
 	@Override
 	public void addCar(Car car) {
 		// TODO Auto-generated method stub
@@ -26,7 +29,7 @@ public class ParkingImplementation implements IParkinglot{
 			{
 				car_info.remove((slot_info.get(n).getReg_number()));
 				slot_info.remove(n);
-				parkinglot.getSlots()[n-1].setStatus(false);
+				slots.get(n-1).setStatus(false);
 				System.out.println("Slot number"+ n + "is free");
 			}
 		
@@ -41,24 +44,33 @@ public class ParkingImplementation implements IParkinglot{
 	@Override
 	public void createParkingLot(int n) {
 		// TODO Auto-generated method stub
-		parkinglot = new Parkinglot(n);
+		ParkingSlot slot;
+		for(int i =0;i<n;i++)
+		{
+			slot = new ParkingSlot();
+			slot.setStatus(false);
+			slots.add(slot);
+			
+		}
 		System.out.println("Created a parking lot with" + n +"slots");
+		//parkinglot = new Parkinglot(n);
+		
 	}
 
 	@Override
 	public int getEmptySlotNumber() {
 		// TODO Auto-generated method stub
 		int n;
-		for(n=0;n<parkinglot.getSlots().length;n++)
+		for(n=0;n<slots.size();n++)
 		{
-			if(parkinglot.getSlots()[n].getStatus()==false)
+			if(slots.get(n).getStatus()==false)
 			{
-				parkinglot.getSlots()[n].setStatus(true);
+				slots.get(n).setStatus(true);
 				System.out.println("Allocated slot number:" + n+1 );
 				break;
 			}
 		}
-		if(n==parkinglot.getSlots().length)
+		if(n==slots.size())
 			{
 			System.out.println("Sorry, parking lot is full");
 			return -1;
@@ -74,7 +86,7 @@ public class ParkingImplementation implements IParkinglot{
 		System.out.println("Slot Number" + "Registration Number"+ "Color" + "\n");
 		{
 		for(int i=0;i<slot_info.size();i++)
-			if(parkinglot.getSlots()[i].getStatus()==true)
+			if(slots.get(i).getStatus()==true)
 			{
 				
 				System.out.println((i+1) + slot_info.get(i+1).getReg_number()+slot_info.get(i+1).getColor());
@@ -132,4 +144,5 @@ public class ParkingImplementation implements IParkinglot{
 
 	
 
+	
 }

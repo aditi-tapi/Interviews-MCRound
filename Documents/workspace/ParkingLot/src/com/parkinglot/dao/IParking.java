@@ -2,7 +2,7 @@ package com.parkinglot.dao;
 
 import com.parkinglot.domain.Car;
 
-public interface IParkinglot {
+public interface IParking {
 	void createParkingLot(int n);
 	void parkCar(int slot_num, Car car);
 	

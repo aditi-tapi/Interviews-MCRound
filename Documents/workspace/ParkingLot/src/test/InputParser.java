@@ -10,15 +10,15 @@ package test;
 	import java.lang.reflect.Method;
 
 import com.parkinglot.domain.Parkinglot;
-import com.parkinglot.service.ParkingServiceImplementation;
+import com.parkinglot.service.ParkingService;
 
 	
 	public class InputParser {
 	    Commands commands;
-	    ParkingServiceImplementation parkingLot;
+	    ParkingService parkingLot;
 	    public InputParser() {
 	        commands = new Commands();
-	        parkingLot = new ParkingServiceImplementation();
+	        parkingLot = new ParkingService();
 	    }
 	    public void parseTextInput(String inputString) {
 	        // Split the input string to get command and input value

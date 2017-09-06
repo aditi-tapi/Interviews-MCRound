@@ -1,14 +1,14 @@
 package com.parkinglot.service;
 
-import com.parkinglot.dao.IParkinglot;
+import com.parkinglot.dao.IParking;
 import com.parkinglot.dao.ParkingImplementation;
 import com.parkinglot.domain.Car;
-import com.parkinglot.domain.Parkinglot;
+//import com.parkinglot.domain.Parkinglot;
 
-public class ParkingServiceImplementation {
-	IParkinglot parking = new ParkingImplementation();
+public class ParkingService {
+	IParking parking = new ParkingImplementation();
 	
-	Parkinglot parkinglot;
+	//Parkinglot parkinglot;
 	public void createParkingLot(int n)
 	{
 		parking.createParkingLot(n);
